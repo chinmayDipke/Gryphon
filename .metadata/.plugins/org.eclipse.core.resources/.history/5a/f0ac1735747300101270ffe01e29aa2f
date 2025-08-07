@@ -1,0 +1,16 @@
+package DSA;
+
+import java.util.Stack;
+
+public class UseStack {
+
+	public static void main(String[] args) {
+		
+		Stack<Integer> s = new Stack();
+		
+		System.out.println(s.isEmpty());
+		
+		s.push(10);
+	}
+
+}

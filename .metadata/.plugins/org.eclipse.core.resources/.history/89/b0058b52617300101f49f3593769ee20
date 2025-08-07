@@ -1,0 +1,41 @@
+/* Searching Prime number based on the Time Complexity
+* 	
+* 
+* 
+* 
+* 
+* */
+
+package DSA;
+
+
+class MostTimeComplexity{
+	
+	void prime() {
+		
+		int n = 999;
+		for(int i = 0;i <= n; i++) {
+			int cnt = 0;
+			for(int j = 0;j <= i; j++) {
+				
+				if(i%j == 0) {
+					cnt++;
+				}
+				if(cnt == 1) {
+					System.out.println(i);
+				}
+				
+			}
+		}
+	}
+			
+}
+
+public class BasicPrimeNumber {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,40 @@
+package MuiltiThreading;
+
+class Calculate{
+	
+	for(int i = 1; i<=10;i++) {
+		int table1 = 5;
+		System.out.println(table1+" x "+i+ "= "+ (table1*i));
+	}
+}
+
+class Calculate1 {
+	
+		for(int i = 1; i<=10;i++) {
+			int table1 = 7;
+			System.out.println(table1+" x "+i+ "= "+ (table1*i));
+		}	
+
+}
+
+public class TablesThread extends Calculate1{
+	
+	
+	TablesThread(int a) {
+		super(a);
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		Calculate op = new Calculate(5);
+		Calculate op1 = new Calculate(7);
+		
+		Thread user1 = new Thread(op);
+		Thread user2 = new Thread(op1);
+		
+		user1.start();
+		user2.start();
+
+	}
+
+}

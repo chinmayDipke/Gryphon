@@ -1,0 +1,35 @@
+package MuiltiThreading;
+
+import java.util.Scanner;
+
+
+class Book{
+	void ticketBook() {
+		int tickets = 5;
+		Scanner sc = new Scanner(System.in);
+		while(tickets != 0) {
+			System.out.println("Enter Your Name: ");
+			String name = sc.next();
+			System.out.println("Enter How many You Want: ");
+			int ticket_amount = sc.nextInt();
+			if(tickets < ticket_amount) {
+				System.out.println("No Ticket Available");
+			}
+			else if(tickets >= ticket_amount) {
+				tickets = tickets - ticket_amount;
+				System.out.println(ticket_amount+" : Ticket Booked");
+			}else {
+				System.out.println("Some error occured");
+			}
+		}
+
+	}
+}
+public class TicketBook extends Book {
+
+	public static void main(String[] args) {
+		Book op = new Book();
+		op.ticketBook();
+	}
+
+}

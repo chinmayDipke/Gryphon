@@ -1,0 +1,32 @@
+package MuiltiThreading;
+
+
+class FiveClass extends Thread{
+	
+	FiveClass(){
+		
+	}
+	
+}
+
+
+class SevenClass extends Thread{
+	
+	SevenClass(){
+		
+	}
+	
+}
+
+public class TablesThread {
+	
+	public static void main(String[] args) {
+		
+		
+		
+		
+		
+		
+	}
+
+}

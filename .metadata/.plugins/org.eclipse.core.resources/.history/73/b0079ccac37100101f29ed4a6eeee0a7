@@ -1,0 +1,40 @@
+/*
+ * 
+ * step 1 : import the lang package
+ * step 2 : A) extend the Thread Class.
+ * 			B) implements the Runnable interface (Besh Apprroach)
+ * step 3 : open the run() method.
+ * step 4 :
+ * step 5 : implement the run() method
+ * step 6 :  create the number of Threads.
+ * step 7 : call the start() method (start the Threads.)
+ * 
+ * 
+ * */
+package MuiltiThreading;
+
+class for_201 extends Thread{
+	public void run() {
+		try {
+			for(int i = 1;i<=3;i++) {
+				System.out.println("For block");
+				Thread.sleep(2000);
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+public class ThreadS_Practical extends for_201 {
+
+	public static void main(String[] args) {
+		
+		for_201 op = new for_201();
+		op.start();
+		for(int i = 1;i<=3;i++) {
+			System.out.println("Main Block");
+		}
+	}
+
+}

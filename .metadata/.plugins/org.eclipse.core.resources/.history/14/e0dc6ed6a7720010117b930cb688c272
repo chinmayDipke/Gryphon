@@ -1,0 +1,70 @@
+package UiDesign;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+class Design extends JFrame{
+	
+	JFrame jf;
+	JPanel pp;//Parent Panel
+	CardLayout cd;
+	
+	JLabel l1, l2;
+//	JButton n1,n2,n3,n4,n5,n6,n7,n8,n9;
+//	JButton b1,b2,b3,b4,b5,b6,b7,b8,b9;
+	
+	Design()
+	{
+		jf = new JFrame("CardLayout Example");
+		cd = new CardLayout();
+		
+		//Creating Main Parent Panel That will contain two Child Panel
+		pp = new JPanel();
+		
+		//Creating two child Panel 
+		JPanel cp1 = new JPanel();
+		JPanel cp2 = new JPanel();
+		
+		//creating two parents button
+		JButton b1 = new JButton("Numbers");
+		JButton b2 = new JButton("Alphabets");
+		
+		//creating 3 child buttons of the number button (parent).
+		JButton b3 = new JButton("1");
+		JButton b4 = new JButton("2");
+		JButton b5 = new JButton("3");
+		
+		//adding b3 b4 b5 buttons to cp1(child panel 1).
+		cp1.add(b3);
+		cp1.add(b4);
+		cp1.add(b5);
+		
+		//creating 4 child buttons of the Alphabets button (parent).
+		JButton b6 = new JButton("A");
+		JButton b7 = new JButton("B");
+		JButton b8 = new JButton("C");
+		JButton b9 = new JButton("D");
+		
+		//adding b6 b7 b8 b9 buttons to cp2(child panel 2).
+		cp2.add(b6);
+		cp2.add(b7);
+		cp2.add(b8);
+		cp2.add(b9);
+		
+		//setting the positioning of the components in pp(containing cp1 & cp2) to CardLayout
+		pp.setLayout(cd);
+				
+
+	}
+	
+}
+
+public class FifthCode {
+
+	public static void main(String[] args) {
+		
+		new Design();
+		
+	}
+
+}

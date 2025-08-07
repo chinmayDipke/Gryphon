@@ -1,0 +1,26 @@
+package MuiltiThreading;
+
+import java.awt.Button;
+import java.awt.Frame;
+
+class PRP_301 extends Frame{
+	PRP_301 (){
+		Button b = new Button("Click Me");
+		b.setBounds(30, 100, 80, 30);
+		add(b);
+		
+		setSize(300,300);
+		setLayout(null);
+		setVisible(true);
+	}
+}
+
+public class AWTS {
+
+	public static void main(String[] args) {
+		
+		new PRP_301();
+
+	}
+
+}

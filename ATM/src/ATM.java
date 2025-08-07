@@ -1,0 +1,261 @@
+import java.util.*;
+import java.text.*;
+
+
+class Account {
+	Scanner sc = new Scanner(System.in);
+	DecimalFormat df = new DecimalFormat("###,##0.00' Rupee'");
+	DecimalFormat df1 = new DecimalFormat("###,##0.00' $'");
+	private int CN;
+	private int pn;
+	
+	double CB = 2000;
+	double SB = 2000;
+	
+	void setCustomerNumber(int cn) {
+		//System.out.println("Customer no: "+cn);
+		CN = cn;
+	}
+	
+	void setPINNumber(int pn) {
+		//System.out.println("Pin no: "+pn);
+		this.pn = pn;
+	}
+	int getPinNumber() {
+		return pn;
+		
+	}
+	int getCustomerNumber() {		
+		return CN;
+	}
+	void getCurrentBalance() {
+		System.out.println("Current Account Balance: "+df.format(CB));
+	}
+	void getSavingBalance(){
+		System.out.println("Current Account Balance: "+df.format(SB));
+	}
+	void getCurrentWithdrawInput(){
+		System.out.println("Current Account Balance: "+df.format(CB));
+		System.out.println("Enter the amount to withdraw: ");
+		double amount = sc.nextDouble();
+		if( (CB - amount) >= 0) {
+			calcCurrentWithdraw(amount);
+			System.out.println("Transaction Succesaful");
+			System.out.println("Current Account Balance: "+df.format(CB));
+		}
+		else {
+			System.out.println("Insufficient Balance");
+		}
+	}
+	double calcCurrentWithdraw( double amount) {
+		CB = CB - amount;
+		return CB;
+	}
+	
+	void getCurrentDepositInput(){
+		System.out.println("Current Account Balance: "+df.format(CB));
+		System.out.println("Enter the amount to deposit: ");
+		double amount = sc.nextDouble();
+		calcCurrentDeposit(amount);
+		System.out.println("Transaction Successful");
+		System.out.println("Current Account Balance: "+df.format(CB));
+	}
+	
+	double calcCurrentDeposit(double amount) {
+		CB = CB + amount;
+		return CB;
+	}
+	
+	void getSavingWithdrawInput(){
+		System.out.println("Savings Account Balance: "+df.format(SB));
+		System.out.println("Enter the amount to withdraw: ");
+		double amount = sc.nextDouble();
+		if( (SB - amount) >= 0) {
+			calcSavingWithdraw(amount);
+			System.out.println("Transaction Successful");
+			System.out.println("Savings Account Balance: "+df.format(SB));
+		}
+		else {
+			System.out.println("Insufficient Balance");
+		}
+	}
+	
+	double calcSavingWithdraw(double amount) {
+		SB = SB - amount;
+		return SB;
+	}
+	
+	void getSavingDepositInput(){
+		System.out.println("Savings Account Balance: "+df.format(SB));
+		System.out.println("Enter the amount to deposit: ");
+		double amount = sc.nextDouble();
+		calcSavingDeposit(amount);
+		System.out.println("Transaction Successful");
+		System.out.println("Savings Account Balance: "+df.format(SB));
+	}
+	
+	double calcSavingDeposit(double amount) {
+		SB = SB + amount;
+		return SB;
+	}
+	
+	
+	
+}
+class OptionMenu extends Account 
+{
+	Scanner sc = new Scanner(System.in);
+	
+	HashMap<Integer, Integer> data = new HashMap<>();
+	
+	void getLogin() {
+			do {
+				try {
+					
+					data.put(1, 11);
+					data.put(2, 11);
+					data.put(3, 33);
+					data.put(4, 44);
+					data.put(5, 55);
+					System.out.println("====================");
+					System.out.println("Welcome to ATM");
+					System.out.println("\nEnter the Customer Number : ");
+					setCustomerNumber(sc.nextInt());
+					System.out.println("Enter the Pin Number      : ");
+					setPINNumber(sc.nextInt());
+					
+					int p = getCustomerNumber();
+					int q = getPinNumber();
+					
+					
+					if(data.containsKey(p) && data.get(p)==q) {
+						getAccountType();
+					}
+					else {
+						System.out.println("wWrong Creditials");
+					}
+						
+					
+			}
+			catch(InputMismatchException e) {
+				System.out.println("Enter Symbol Only");
+				sc.next();
+				getLogin();
+			}
+			
+		}while(true);
+
+	}
+	void getAccountType(){
+		System.out.println("====================");
+		System.out.println("\nEnter the Account Type you want to access.");
+		System.out.println("Type 1: Current Account");
+		System.out.println("Type 2: Savings Account");
+		System.out.println("Type 3: Exit");
+		System.out.println("====================");
+
+		System.out.println("Choice: ");
+		int choice = sc.nextInt();
+		switch(choice) {
+			case 1:
+				getCurrent();
+				break;
+			case 2:
+				getSaving();
+				break;
+			case 3:
+				System.out.println("\nThank You For VISITING");
+				System.out.println("Visit Again\n");
+				break;
+			default:
+				System.out.println("Invalid Choice");
+				System.out.println("Enter Valid Choice.");
+				getAccountType();
+				break;
+		}
+		
+			
+	}
+	void getCurrent() {
+		System.out.println("====================");
+		System.out.println("Current Account");
+		System.out.println("Type 1: Balance Enquiry.");
+		System.out.println("Type 2: Withdraw Money ");
+		System.out.println("Type 3: Deposit Money");
+		System.out.println("Type 4: Exit");
+		System.out.println("====================");
+		System.out.println("Choice: ");
+		int choice = sc.nextInt();
+		switch(choice) {
+			case 1:
+				getCurrentBalance();
+				getAccountType();
+				break;
+			case 2:
+				getCurrentWithdrawInput();
+				getAccountType();
+				break;
+			case 3:
+				getCurrentDepositInput();
+				getAccountType();
+				break;
+			case 4:
+				System.out.println("\nThank You For VISITING");
+				System.out.println("Visit Again\n");
+				break;
+			default:
+				System.out.println("Invalid Choice");
+				System.out.println("Enter Valid Choice.");
+				getCurrent();
+				break;
+		}
+		
+	}
+	
+	void getSaving() {
+		System.out.println("====================");
+		System.out.println("Savings Account");
+		System.out.println("Type 1: Balance Enquiry.");
+		System.out.println("Type 2: Withdraw Money ");
+		System.out.println("Type 3: Deposit Money");
+		System.out.println("Type 4: Exit");
+		System.out.println("====================");
+		System.out.println("Choice: ");
+		int choice = sc.nextInt();
+		switch(choice) {
+			case 1:
+				getSavingBalance();
+				getAccountType();
+				break;
+			case 2:
+				getSavingWithdrawInput();
+				getAccountType();
+				break;
+			case 3:
+				getSavingDepositInput();
+				getAccountType();
+				break;
+			case 4:
+				System.out.println("\nThank You For VISITING");
+				System.out.println("Visit Again\n");
+				break;
+			default:
+				System.out.println("Invalid Choice");
+				System.out.println("Enter Valid Choice.");
+				getSaving();
+				break;
+		}
+		
+	}
+	
+
+}
+
+public class ATM extends OptionMenu {
+	
+	public static void main(String[] args) {
+		OptionMenu op = new OptionMenu();
+		op.getLogin();
+	}
+
+}

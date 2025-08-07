@@ -1,0 +1,39 @@
+package MuiltiThreading;
+
+class PrintClass{
+	void print() {
+		for(int i = 1; i<= 10;i++) {
+			System.out.println(i);
+		}
+	}
+}
+class FiveClass extends Thread{
+	
+	FiveClass(){
+		
+	}
+	
+}
+
+
+class SevenClass extends Thread{
+	
+	SevenClass(){
+		
+	}
+	
+}
+
+public class TablesThread {
+	
+	public static void main(String[] args) {
+		
+		TablesThread op = new TablesThread();
+		SevenClass t1 = new SevenClass();
+		FiveClass t2 = new FiveClass();
+		
+		
+		
+	}
+
+}

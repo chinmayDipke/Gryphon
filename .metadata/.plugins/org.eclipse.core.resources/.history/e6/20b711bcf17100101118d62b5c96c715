@@ -1,0 +1,93 @@
+import java.util.Scanner;
+
+public class LastQue {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Simple user inputs
+        System.out.print("Enter your name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter your salary: ");
+        int salary = sc.nextInt();
+        sc.nextLine(); // clear buffer
+
+        System.out.print("Enter your date of birth (year only): ");
+        int dobYear = sc.nextInt();
+        sc.nextLine();
+
+        System.out.print("Enter your father's name: ");
+        String father = sc.nextLine();
+
+        System.out.print("Enter your mother's name: ");
+        String mother = sc.nextLine();
+
+        System.out.print("Are you a student? (yes/no): ");
+        String student = sc.nextLine();
+
+        System.out.print("Do you have a PAN card? (yes/no): ");
+        String pan = sc.nextLine();
+
+        System.out.print("Are you working? (yes/no): ");
+        String working = sc.nextLine();
+
+        System.out.print("Do you have a laptop? (yes/no): ");
+        String laptop = sc.nextLine();
+
+        System.out.print("Do you use internet daily? (yes/no): ");
+        String internet = sc.nextLine();
+
+        System.out.println("\n--- Result ---");
+
+        // 11 if and 11 else in a clear structure
+
+        if (name.length() > 0) {
+            if (salary > 10000) {
+                if (dobYear < 2008) {
+                    System.out.println("You are eligible to work.");
+                } else {
+                    if (student.equals("yes")) {
+                        System.out.println("You can apply for internships.");
+                    } else {
+                        System.out.println("Not eligible due to age.");
+                    }
+                }
+            } else {
+                if (salary > 0) {
+                    System.out.println("Salary is low, try for better job.");
+                } else {
+                    if (working.equals("yes")) {
+                        System.out.println("Check salary details again.");
+                    } else {
+                        System.out.println("Try searching for work.");
+                    }
+                }
+            }
+        } else {
+            if (father.length() == 0) {
+                if (mother.length() == 0) {
+                    System.out.println("Parent details missing.");
+                } else {
+                    System.out.println("Father's name missing.");
+                }
+            } else {
+                if (pan.equals("yes")) {
+                    if (internet.equals("yes")) {
+                        System.out.println("Try online job applications.");
+                    } else {
+                        System.out.println("Enable internet to apply jobs.");
+                    }
+                } else {
+                    if (laptop.equals("yes")) {
+                        System.out.println("Apply for PAN online.");
+                    } else {
+                        System.out.println("Visit center for PAN card.");
+                    }
+                }
+            }
+        }
+
+        sc.close();
+    }
+}

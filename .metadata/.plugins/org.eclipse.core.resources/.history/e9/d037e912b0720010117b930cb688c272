@@ -1,0 +1,96 @@
+package UiDesign;
+
+import java.awt.CardLayout;
+import java.awt.*;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+class Design2 extends JFrame{
+	
+	
+	Design2()
+	{
+		
+			
+		
+		JButton b1 = new JButton("1");
+		JButton b2 = new JButton("2");
+		JButton b3 = new JButton("3");
+		JButton b4 = new JButton("4");
+		JButton b5 = new JButton("5");
+		JButton b6 = new JButton("6");
+		JButton b7 = new JButton("7");
+		JButton b8 = new JButton("8");
+		JButton b9 = new JButton("9");
+		JButton b0 = new JButton("0");
+		JButton add = new JButton("+");
+		JButton sub = new JButton("-");
+		JButton mul = new JButton("x");
+		JButton div = new JButton("/");
+		JButton eq = new JButton("=");
+		
+		jf.add(b1);
+		jf.add(b2);
+		jf.add(b3);
+		jf.add(add);
+		jf.add(b4);
+		jf.add(b5);
+		jf.add(b6);
+		jf.add(sub);
+		jf.add(b7);
+		jf.add(b8);
+		jf.add(b9);
+		jf.add(mul);
+		jf.add(b0);
+		jf.add(div);
+		jf.add(eq);
+		
+			
+	}
+
+}
+
+public class Calcualtor {
+
+	JFrame jf;
+	
+	GridLayout gd;
+	
+	JLabel l1, l2;
+	Calcualtor()
+	{
+		jf = new JFrame("GridLayout Example");
+		
+		gd = new GridLayout(4,4);
+		
+		String[][] arr = {
+				{"9", "8", "7", "/"},
+				{"6", "5", "4", "*"},
+				{"3", "2", "1", "-"},
+				{"=", "0", "C", "+"},
+		};
+		
+		
+		for(int i = 0; i < arr.length; i++) {
+			for(int j = 0; j < arr[0].length; j++) {	
+				jf.add(new JButton(arr[i][j]));
+			}
+		}
+		
+		jf.setLayout(gd);
+		
+		jf.setSize(300, 200);
+		jf.setVisible(true);	
+	}
+	
+
+	
+	public static void main(String[] args) {
+		new Design2();
+
+	}
+
+}

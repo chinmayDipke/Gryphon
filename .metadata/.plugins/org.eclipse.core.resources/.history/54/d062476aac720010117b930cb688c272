@@ -1,0 +1,34 @@
+package UiDesign;
+
+import java.awt.CardLayout;
+import java.awt.*;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+class Design2 extends JFrame{
+	
+	JFrame jf;
+	JPanel pp;//Parent Panel
+	GridLayout gd;
+	
+	JLabel l1, l2;
+	Design2()
+	{
+			
+		
+		jf.setSize(300, 200);
+		jf.setVisible(true);		
+	}
+
+}
+
+public class Calcualtor {
+
+	public static void main(String[] args) {
+
+
+	}
+
+}

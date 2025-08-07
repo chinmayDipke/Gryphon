@@ -1,0 +1,106 @@
+import java.util.Scanner;
+
+public class LastQue {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Collecting user input
+        System.out.print("Enter your full name: ");
+        String name = sc.nextLine();
+
+        System.out.print("Enter your salary (in INR): ");
+        double salary = sc.nextDouble();
+        sc.nextLine(); // consume newline
+
+        System.out.print("Enter your date of birth (YYYY-MM-DD): ");
+        String dob = sc.nextLine();
+
+        System.out.print("Enter your father's name: ");
+        String fatherName = sc.nextLine();
+
+        System.out.print("Enter your mother's name: ");
+        String motherName = sc.nextLine();
+
+        System.out.print("Are you married? (yes/no): ");
+        String maritalStatus = sc.nextLine();
+
+        System.out.print("Enter your nationality: ");
+        String nationality = sc.nextLine();
+
+        System.out.print("Enter your highest qualification: ");
+        String education = sc.nextLine();
+
+        System.out.print("Do you have any criminal record? (yes/no): ");
+        String criminalRecord = sc.nextLine();
+
+        System.out.print("Do you have any previous job experience? (yes/no): ");
+        String previousJob = sc.nextLine();
+
+        System.out.print("Are you physically fit? (yes/no): ");
+        String fitness = sc.nextLine();
+
+        System.out.print("Do you have any disability? (yes/no): ");
+        String disability = sc.nextLine();
+
+        System.out.println("\n--- Application Processing ---");
+
+        // Deeply nested if-else structure
+        if (nationality.equalsIgnoreCase("Indian")) {
+            if (education.equalsIgnoreCase("Graduate") || education.equalsIgnoreCase("Postgraduate")) {
+                if (criminalRecord.equalsIgnoreCase("no")) {
+                    if (fitness.equalsIgnoreCase("yes")) {
+                        if (disability.equalsIgnoreCase("no")) {
+                            System.out.println("✅ You are eligible for the physical job role.");
+                        } else {
+                            System.out.println("⚠️ You are eligible for desk-based roles.");
+                        }
+                    } else {
+                        if (previousJob.equalsIgnoreCase("yes")) {
+                            System.out.println("⚠️ Considered for remote/part-time roles.");
+                        } else {
+                            System.out.println("❌ Not eligible due to physical unfitness and no experience.");
+                        }
+                    }
+                } else {
+                    if (criminalRecord.equalsIgnoreCase("yes")) {
+                        System.out.println("❌ Not eligible due to criminal record.");
+                    } else {
+                        System.out.println("❌ Invalid entry for criminal record.");
+                    }
+                }
+            } else {
+                if (education.equalsIgnoreCase("12th")) {
+                    if (salary < 20000) {
+                        System.out.println("⚠️ You can apply for clerical roles.");
+                    } else {
+                        System.out.println("❌ Overqualified for clerical and underqualified for higher posts.");
+                    }
+                } else {
+                    if (education.isEmpty()) {
+                        System.out.println("❌ Education field cannot be empty.");
+                    } else {
+                        System.out.println("❌ Education qualification not sufficient.");
+                    }
+                }
+            }
+        } else {
+            if (nationality.isEmpty()) {
+                System.out.println("❌ Nationality field cannot be empty.");
+            } else {
+                if (nationality.length() < 4) {
+                    System.out.println("❌ Invalid nationality format.");
+                } else {
+                    if (nationality.equalsIgnoreCase("NRI")) {
+                        System.out.println("⚠️ Only selected jobs are open for NRIs.");
+                    } else {
+                        System.out.println("❌ Only Indian nationals are allowed.");
+                    }
+                }
+            }
+        }
+
+        sc.close();
+    }
+}
+``

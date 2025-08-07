@@ -1,0 +1,47 @@
+package JdbcSql;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.Statement;
+
+public class InsertTable {
+
+	public static void main(String[] args) {
+		String url="jdbc:mysql://localhost:3305/mydata";
+		String user="root";
+		String password="arconn";
+		
+		Connection con = null;
+		Statement stmt = null;
+				
+		try {
+			
+			//step2: load the drivers
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			
+			//step3:connect the mysql
+			con=DriverManager.getConnection(url,user,password);
+	        System.out.println("Database connected Successfully");
+	        
+	         //step4:create the statement
+	         stmt=con.createStatement();
+	         String query="Insert into train values(1,chinmay,dipke,amravati)";
+	         
+	         //step5: executes the query
+	         stmt.executeUpdate(query);
+	         
+	         //step6: skip
+	         System.out.println("Database DELTED Successfully");
+	         
+	         //step7: close the connection
+	         con.close();
+	         
+			
+		}
+		catch(Exception e) 
+		{
+			e.printStackTrace();
+
+	}
+
+}

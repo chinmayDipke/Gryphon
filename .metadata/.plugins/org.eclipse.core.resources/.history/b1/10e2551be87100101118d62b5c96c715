@@ -1,0 +1,47 @@
+package MuiltiThreading;
+
+class PrintBook {
+	static int ticket = 10;
+	int available= 10;
+	
+	
+	void block(int seat) {
+		String name = Thread.currentThread().getName();
+		System.out.println("Hello "+name);
+		System.out.println("Hello "+name);
+		System.out.println("Hello "+name);		
+		
+		if(available >= seat) {
+			System.out.println("----"+name+" seats are booked.");
+			available = available - seat;
+			
+		}else {
+			
+		}
+	}
+}
+
+public class MultipleUser extends Thread {
+	static PrintBook op;
+	static int seat;
+	
+	public void run() {
+		
+		op.block();
+	
+	}
+	public static void main(String[] args) {
+		
+		op = new PrintBook();
+		
+		MultipleUser t1 = new MultipleUser();
+		MultipleUser t2 = new MultipleUser();
+		
+		t1.setName("ABC");
+		t2.setName("PQR");
+		t1.seat = 6;
+		t2.seat = 7;
+
+	}
+
+}

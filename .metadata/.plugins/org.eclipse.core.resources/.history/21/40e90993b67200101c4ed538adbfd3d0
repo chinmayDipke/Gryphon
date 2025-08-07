@@ -1,0 +1,59 @@
+package JdbcSql;
+
+//step1: Phone
+//import the java.sql.*; package
+//step2: SIM & Register
+//Drivers
+//step3: call (connect)the friend
+//connect to the database
+//step 4: thinking
+//create the statements (queries)
+//step5:talking
+//executes the queries
+//step6: got response
+//result
+//step7: cut the call
+//close the connection
+
+import java.sql.*;
+public class JDBC {
+	public static void main(String[] args) 
+	{
+		String url="jdbc:mysql://localhost:3306/";
+		String user="root";
+		String password="arconn";
+				
+		String dbName="PRP_CSE_C";
+		try {
+			
+			//step2: load the drivers
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			
+			//step3:connect the mysql
+			Connection con=DriverManager.getConnection(url,user,password);
+	        System.out.println("Database connected Successfully");
+	        
+	         //step4:create the statement
+	         Statement stmt=con.createStatement();
+	         String query="CREATE DATABASE " +dbName;
+	         
+	         //step5: executes the query
+	         stmt.executeUpdate(query);
+	         
+	         //step6: skip
+	         System.out.println("\n Database Created Successfully :"+dbName);
+	         
+	         //step7: close the connection
+	         con.close();
+	         
+			
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+	}
+
+}

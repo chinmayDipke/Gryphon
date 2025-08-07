@@ -1,0 +1,49 @@
+package MuiltiThreading;
+
+class User extends Thread{
+	int ticket = 10;
+	
+	User() {
+		System.out.println("Hello ");
+	}
+	
+	public void run() {
+		System.out.println("Ticket Booked: "+(ticket-7));
+		bye();
+	}
+	void bye() {
+		System.out.println("Bye ");
+	}
+}
+
+class User1 extends Thread{
+	int ticket = 10;
+	
+	User1() {
+		System.out.println("Hello ");
+	}
+	public void run() {
+		System.out.println("Ticket Booked: "+(ticket-6));
+		bye();
+	}
+	void bye() {
+		System.out.println("Bye ");
+	}
+}
+
+
+public class MultipleUser {
+
+	public static void main(String[] args) {
+		
+		User op = new User();
+		User1 op1 = new User1();
+		Thread user1 = new Thread(op);
+		Thread user2 = new Thread(op1);
+		
+		user1.start();
+		user2.start();
+
+	}
+
+}

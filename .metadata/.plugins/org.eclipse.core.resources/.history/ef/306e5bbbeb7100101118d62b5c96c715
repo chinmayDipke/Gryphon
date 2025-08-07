@@ -1,0 +1,49 @@
+package MuiltiThreading;
+
+class Amount extends Thread {
+	int withdraw;
+	int balance = 5000;
+	Amount(int a){
+		withdraw = a;
+	}
+	void show() {
+		String name = Thread.currentThread().getName();
+		if(balance >= withdraw) {
+			
+			System.out.println("Trasect Success");
+			balance = balance - withdraw;
+			
+		}else {
+			System.out.println("Not");
+		}
+		
+	}
+	public void run() {
+		
+	}
+}
+
+public class BankThread  {
+
+	public static void main(String[] args) {
+		
+		Amount op = new Amount(2000);
+		
+		Thread t1 = new Thread(op);
+		Thread t2 = new Thread(op);
+		Thread t3 = new Thread(op);
+		Thread t4 = new Thread(op);
+		
+		t1.setName("ABC");
+		t2.setName("PQR");
+		t3.setName("UVW");
+		t4.setName("XYZ");
+		
+		t1.start();
+		t2.start();
+		t3.start();
+		t4.start();
+		
+	}
+
+}

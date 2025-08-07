@@ -1,0 +1,32 @@
+package MuiltiThreading;
+
+class Calculate extends Thread{
+	int table;
+	Calculate(int a){
+		table = a;
+	}
+	public synchronized void run() {
+		for(int i = 1; i<=10;i++) {
+			System.out.println(table+" x "+i+ "="+ (5*i));
+		}	
+	}
+}
+
+public class TablesThread extends Calculate{
+	TablesThread(int a) {
+		super(a);
+	}
+
+	public static void main(String[] args) {
+		Calculate op = new Calculate(5);
+		Calculate op1 = new Calculate(7);
+		
+		Thread user1 = new Thread(op);
+		Thread user2 = new Thread(op1);
+		
+		user1.start();
+		user2.start();
+
+	}
+
+}

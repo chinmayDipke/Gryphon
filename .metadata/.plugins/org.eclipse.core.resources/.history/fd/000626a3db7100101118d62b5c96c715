@@ -1,0 +1,22 @@
+package MuiltiThreading;
+
+class SuperClass{
+	
+}
+
+class Calculate1 extends SuperClass{
+	
+}
+
+public class TablesThread extends Calculate1{
+	
+	public static void main(String[] args) {
+		SuperClass op = new SuperClass();
+		SuperClass op1 = new SuperClass();
+		
+		
+		
+		
+	}
+
+}

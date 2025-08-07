@@ -1,0 +1,18 @@
+package MuiltiThreading;
+
+class Ticket {
+	int tickets = 5;
+	
+}
+class Book extends Ticket{
+	
+}
+public class TicketBook extends Book {
+
+	public static void main(String[] args) {
+		
+		
+
+	}
+
+}
