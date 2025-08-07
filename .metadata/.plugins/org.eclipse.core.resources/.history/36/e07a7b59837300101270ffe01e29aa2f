@@ -44,7 +44,7 @@ public class UseStack {
 		
 		System.out.println("Before Sort : "+stack);
 		
-		sortStack(stack);
+		sort(stack);
 		
 		System.out.println("=====================");
 		System.out.println("After Sort : "+stack);
@@ -59,7 +59,7 @@ public class UseStack {
 		while(!stack.isEmpty()) 
 		{
 			//pop the top element form original stack and store it in variable temp
-			int temp = stack.pop();
+			int temp = 0;
 			
 			//while tempstack is not empty and the top element of the tempstack is greater than
 			//temp variable then move elements back to the original stack.

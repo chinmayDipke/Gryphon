@@ -44,7 +44,7 @@ public class UseStack {
 		
 		System.out.println("Before Sort : "+stack);
 		
-		sortStack(stack);
+		sort(stack);
 		
 		System.out.println("=====================");
 		System.out.println("After Sort : "+stack);
