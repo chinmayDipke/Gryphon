@@ -1,3 +1,2 @@
-.metadata/.
-.metadata/.log
-.metadata/.plugins
+*.metadata
+.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.markers.snap

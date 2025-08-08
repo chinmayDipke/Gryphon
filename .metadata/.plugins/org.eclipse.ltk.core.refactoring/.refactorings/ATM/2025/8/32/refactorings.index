@@ -6,3 +6,4 @@
 1754480827495	Rename type 'JDBC'
 1754480868560	Rename type 'CreateDatabase'
 1754480880540	Rename type 'DeleteDatabase'
+1754631434591	Rename local variable 'row'
