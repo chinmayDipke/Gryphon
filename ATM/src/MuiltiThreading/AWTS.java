@@ -45,3 +45,52 @@ public class AWTS {
 	}
 
 }
+package com.dsa;
+
+import java.util.*;
+
+public class Problem {
+    static final long MOD = 1000000007;
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input array size and elements
+        int n = sc.nextInt();
+        long[] arr = new long[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextLong();
+        }
+
+        // Number of queries
+        int q = sc.nextInt();
+        long totalSum = 0;
+
+        // Process queries
+        for (int k = 0; k < q; k++) {
+            int type = sc.nextInt();
+            int l = sc.nextInt() - 1; // converting to 0-based
+            int r = sc.nextInt() - 1; // converting to 0-based
+
+            if (type == 1) {
+                // Type 1: Update range
+                long[] copy = arr.clone(); // keep original values for correct updates
+                for (int i = l; i <= r; i++) {
+                    arr[i] = ((i - l + 1) * copy[i]) % MOD;
+                }
+            } 
+            else if (type == 2) {
+                // Type 2: Sum range
+                long sum = 0;
+                for (int i = l; i <= r; i++) {
+                    sum = (sum + arr[i]) % MOD;
+                }
+                totalSum = (totalSum + sum) % MOD;
+            }
+        }
+
+        // Final result
+        System.out.println(totalSum % MOD);
+        sc.close();
+    }
+}
