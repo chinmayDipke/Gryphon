@@ -2,4 +2,3 @@ INDEX VERSION 1.131+E:\Gryphon\.metadata\.plugins\org.eclipse.jdt.core
 1865797976.index
 138591789.index
 1057665254.index
-125644172.index

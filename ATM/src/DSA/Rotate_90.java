@@ -1,11 +1,9 @@
 package DSA;
 
-public class UseStack {
+public class Rotate_90 {
 
 	public static void main(String[] args) {
-		
-		Stack<Integer> s = new Stack();
-		
+		// TODO Auto-generated method stub
 
 	}
 
